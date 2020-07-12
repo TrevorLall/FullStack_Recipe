@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Container, Row, Col, Card } from "react-bootstrap";
+import { Link } from 'react-router-dom'
 
 export default class Recipes extends Component {
     constructor() {
@@ -12,23 +14,23 @@ export default class Recipes extends Component {
         fetch('/api/recipes')
             .then(res => res.json())
             .then(recipes => this.setState({ recipes },
-                () => console.log('customers feteched... ', recipes)));
+                () => console.log('Recipes feteched... ', recipes)));
     }
 
     render() {
         return (
+
             <div>
                 <h2>Recipes</h2>
                 <ul>
-                    {this.state.recipes.map(recipes =>
-                        <li key={recipes.id}>
-                            <h3>{recipes.title}</h3>
-                            <p>{recipes.description}</p>
-                            <p>{recipes.typeOf}</p>
-                            <h6>Servings: {recipes.servings}</h6>
-                            <h6>Preptime: {recipes.prepTime} mins</h6>
-                            <h6>Cooktime: {recipes.cooktime} mins</h6>
-                        </li>)}
+                    <Card>
+                        {this.state.recipes.map(recipes =>
+                            <li key={recipes.id}>
+                                <img height="255" width="275" src={recipes.image} alt="Food"></img>
+                                <Link to={`/recipes/${recipes.slug}`} className="btn-primary room-link">Features</Link>
+                                <Card.Footer className="shadow-lg p-3 bg-warning text-dark">{recipes.title}</Card.Footer>
+                            </li>)}
+                    </Card>
                 </ul>
             </div>
         )

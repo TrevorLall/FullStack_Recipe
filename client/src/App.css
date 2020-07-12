@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+li{
+  /* with fix for IE */
+  display:inline;
+
+  /*
+  additional styles to make it look nice
+  */
+}

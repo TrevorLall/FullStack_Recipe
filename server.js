@@ -38,7 +38,7 @@ app.get('/api/recipes', (req, res) => {
         }
         else {
             console.log('Connected!');
-            tempCont.query("select r.recipeId, r.title, r.description, r.typeOf, r.image, n.servings, n.cooktime, n.prepTime from recipe r, nutrition n where  r.nutritionId = n.nutritionId", function (error, rows, fields) {
+            tempCont.query("select r.recipeId, r.title, r.description, r.typeOf, r.image, r.slug, n.servings, n.cooktime, n.prepTime from recipe r, nutrition n where  r.nutritionId = n.nutritionId", function (error, rows, fields) {
                 tempCont.release();
                 if (error)
                     console.log('Error in query');
@@ -49,7 +49,28 @@ app.get('/api/recipes', (req, res) => {
         }
     });
 });
+app.get('/api/recipes/get', (req, res) => {
+    // sql code
+    connection.getConnection((error, tempCont) => {
+        if (error) {
+            tempCont.release();
+            console.log('Error');
+        }
+        else {
+            console.log('Connected!');
+            console.log(req.query);
 
+            tempCont.query("select r.recipeId, r.title, r.description, r.typeOf, r.image, r.slug, n.servings, n.cooktime, n.prepTime from recipe r, nutrition n where  r.nutritionId = n.nutritionId AND r.slug = '" + req.query.slug + "'", function (error, rows, fields) {
+                tempCont.release();
+                if (error)
+                    console.log('Error in query');
+                else
+                    res.json(rows);
+            });
+
+        }
+    });
+});
 app.get('/api/directions', (req, res) => {
     // sql code
     connection.getConnection((error, tempCont) => {
