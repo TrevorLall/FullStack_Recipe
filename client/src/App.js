@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Customers from './components/customers/customers'
+import Recipes from './components/customers/Recipes'
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           Learn React
         </a>
       </header>
-      <Customers></Customers>
+      <Recipes></Recipes>
     </div>
   );
 }
