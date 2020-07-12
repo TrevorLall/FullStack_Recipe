@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Recipes from './components/customers/Recipes'
+import Recipes from './components/Recipes'
 
 function App() {
   return (
