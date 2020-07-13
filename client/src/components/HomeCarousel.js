@@ -3,15 +3,12 @@ import Carousel from 'react-bootstrap/Carousel'
 
 export default function HomeCarousel() {
     return (
-
         <Carousel>
             <Carousel.Item>
                 <img
                     className="d-block w-100"
                     src="https://www.cookingclassy.com/wp-content/uploads/2018/08/chicken-curry-11.jpg"
                     alt="First slide"
-                    height="550"
-
                 />
                 <Carousel.Caption>
                     <h3>First slide label</h3>

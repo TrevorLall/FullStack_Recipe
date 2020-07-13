@@ -1,3 +1,16 @@
+:root {
+  --primaryColor: #af9a7d;
+  --mainWhite: #fff;
+  --offWhite: #f7f7f7;
+  --mainBlack: #222;
+  --mainGrey: #ececec;
+  --darkGrey: #cfcfcf;
+  --mainTransition: all 0.3s linear;
+  --mainSpacing: 3px;
+  --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+  --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
 .App {
   text-align: center;
 }
@@ -37,11 +50,123 @@
   }
 }
 
-li{
-  /* with fix for IE */
-  display:inline;
+.btn-primarys {
+  display: inline-block;
+  text-decoration: none;
+  letter-spacing: var(--mainSpacing);
+  color: var(--mainBlack);
+  background: var(--primaryColor);
+  padding: 0.4rem 0.9rem;
+  border: 3px solid var(--primaryColor);
+  transition: var(--mainTransition);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.btn-primarys:hover {
+  background: transparent;
+  color: var(--primaryColor);
+}
 
-  /*
-  additional styles to make it look nice
-  */
+.img-container {
+  position: relative;
+}
+.img-container img {
+  width: 100%;
+  height: 250px;
+  display: block;
+  transition: var(--mainTransition);
+}
+
+.img-container:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+.img-container:hover img {
+  opacity: 0.3;
+}
+
+.recipe {
+  box-shadow: var(--lightShadow);
+  transition: var(--mainTransition);
+}
+.recipe:hover {
+  box-shadow: var(--darkShadow);
+}
+
+.img-container:hover .recipe-link {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.recipe-info {
+  background: var(--primaryColor);
+  color: var(--mainBlack);
+  text-transform: uppercase;
+  padding: 0.5rem 0;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: var(--mainSpacing);
+  margin-bottom: 0;
+}
+
+.recipeslist {
+  padding: 2rem 0;
+}
+.recipeslist-center {
+  width: 80vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-row-gap: 2rem;
+  grid-column-gap: 30px;
+}
+
+.recipe-link {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: scale(0);
+  transition: all 0.3s linear;
+}
+
+@media screen and (min-width: 776px) {
+  .roomslist-center {
+    width: 90vw;
+  }
+}
+@media screen and (min-width: 992px) {
+  .roomslist-center {
+    width: 95vw;
+    max-width: 1170px;
+  }
+}
+
+.homecarousel {
+  padding: 1rem 0;
+}
+
+.section-title {
+  text-align: center;
+}
+.section-title h4 {
+  font-size: 2rem;
+  letter-spacing: var(--mainSpacing);
+  text-transform: capitalize;
+}
+.section-title div {
+  width: 5rem;
+  height: 5px;
+  margin: 0 auto;
+  background: var(--primaryColor);
+}
+
+.carousel-inner img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 32rem;
+  object-fit: cover !important;
+  display: block;
+}
+
+.carousel-item {
+  height: 32rem;
 }

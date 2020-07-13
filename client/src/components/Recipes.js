@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Title from './Title'
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from 'react-router-dom'
 
@@ -18,16 +19,51 @@ export default class Recipes extends Component {
             .then(recipes => this.setState({ recipes },
                 () => console.log('Single recipe feteched... ', recipes)));
     }
+
+    getInfo() {
+        let title = this.state.recipes.map((item => {
+            return item.title;
+        }));
+        let image = this.state.recipes.map((item => {
+            return item.image;
+        }));
+        let servings = this.state.recipes.map((item => {
+            return item.servings;
+        }));
+        let typeOf = this.state.recipes.map((item => {
+            return item.typeOf;
+        }));
+        let prepTime = this.state.recipes.map((item => {
+            return item.prepTime;
+        }));
+        let cookTime = this.state.recipes.map((item => {
+            return item.cookTime;
+        }));
+
+        return {
+            title,
+            image,
+            servings,
+            typeOf,
+            prepTime,
+            cookTime
+        }
+    }
+
     render() {
+        const info = this.getInfo();
+        const totalTime = parseInt(info.prepTime);
         return (
-            <ul>
-                {this.state.recipes.map(recipes =>
-                    <li key={recipes.id}>
-                        <img height="255" width="275" src={recipes.image} alt="Food"></img>
-                        <h2>{recipes.title}</h2>
-                        <h3>{recipes.description}</h3>
-                    </li>)}
-            </ul>
+            <div>
+                <h2>{info.title}</h2>
+                <img src={info.image} alt="Recipe Image"></img>
+                <h6>{info.typeOf}</h6>
+                <Title title="nutirition"></Title>
+                <h3>{info.prepTime}</h3>
+                <h3>{info.cookTime}</h3>
+                <h3>{totalTime}</h3>
+                <h3>{info.servings}</h3>
+            </div>
         )
     }
 }

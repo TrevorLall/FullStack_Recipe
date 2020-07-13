@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Title from './Title'
 
 export default class Ingredients extends Component {
     constructor(props) {
@@ -19,8 +20,9 @@ export default class Ingredients extends Component {
     render() {
         console.log(this.props);
         return (
-            <div>
-                <ol>
+            <>
+                <Title title="Ingredients List"></Title>
+                <ul>
                     {this.state.ingredients.map(ingredients =>
                         <li key={ingredients.id}>
                             <h6>
@@ -29,8 +31,8 @@ export default class Ingredients extends Component {
                                 {ingredients.ingredientAmount}
                                 {ingredients.ingredientMeasurement}</h6>
                         </li>)}
-                </ol>
-            </div>
+                </ul>
+            </>
         )
     }
 }

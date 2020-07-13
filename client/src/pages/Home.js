@@ -10,7 +10,9 @@ export default function Home() {
             <Container fluid={true}>
                 <Row>
                     <Col xs={12} sm={12} md={12} lg={12}>
-                        <Carousel></Carousel>
+                        <div className="homecarousel">
+                            <Carousel></Carousel>
+                        </div>
                     </Col>
                 </Row>
                 <Row>

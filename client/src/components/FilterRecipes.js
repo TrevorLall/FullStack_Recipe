@@ -1,9 +1,10 @@
 import React from 'react'
-
+import Title from './Title'
 export default function FilterRecipes() {
     return (
-        <div>
+        <>
+            <Title title="Filters"></Title>
             Area where ill add filters
-        </div>
+        </>
     )
 }

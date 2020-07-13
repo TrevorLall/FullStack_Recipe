@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Title from './Title'
 
 export default class Directions extends Component {
     constructor(props) {
@@ -19,14 +20,15 @@ export default class Directions extends Component {
     render() {
         console.log(this.props);
         return (
-            <div>
+            <>
+                <Title title="Directions"></Title>
                 <ol>
                     {this.state.directions.map(directions =>
                         <li key={directions.id}>
                             <h6>{directions.description}</h6>
                         </li>)}
                 </ol>
-            </div>
+            </>
         )
     }
 }

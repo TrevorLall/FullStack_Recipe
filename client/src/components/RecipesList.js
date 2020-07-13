@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from 'react-router-dom'
+import Recipesthumbnail from './Recipesthumbnail'
+import Title from './Title'
 
 export default class RecipesList extends Component {
     constructor() {
@@ -19,20 +21,16 @@ export default class RecipesList extends Component {
 
     render() {
         return (
-
-            <div>
-                <h2>Recipes</h2>
-
-                <Card>
-                    {this.state.recipes.map(recipes =>
-                        <li key={recipes.id}>
-                            <img height="255" width="275" src={recipes.image} alt="Food"></img>
-                            <Link to={`/recipes/${recipes.slug}`} className="btn-primary room-link">Features</Link>
-                            <Card.Footer className="shadow-lg p-3 bg-warning text-dark">{recipes.title}</Card.Footer>
-                        </li>)}
-                </Card>
-
-            </div>
+            <>
+                <Title title="Recipes"></Title>
+                <section className="recipeslist">
+                    <div className="recipeslist-center">
+                        {this.state.recipes.map(recipes => {
+                            return <Recipesthumbnail key={recipes.id} title={recipes.title} image={recipes.image} slug={recipes.slug} />
+                        })}
+                    </div>
+                </section>
+            </>
         )
     }
 }
