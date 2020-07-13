@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import { Route, Switch } from 'react-router-dom'
 import Navbar from './components/NavBar'
 import singleRecipe from './pages/SingleRecipe'
+import Error from './pages/Error'
 
 function App() {
   return (

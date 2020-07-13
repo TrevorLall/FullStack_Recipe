@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Carousel from '../components/HomeCarousel'
-import Recipes from '../components/Recipes'
+import RecipesList from '../components/RecipesList'
 import { Container, Row, Col } from "react-bootstrap";
 import FilterRecipes from '../components/FilterRecipes';
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
                 </Row>
                 <Row>
                     <Col xs={12} sm={12} md={12} lg={12}>
-                        <Recipes></Recipes>
+                        <RecipesList></RecipesList>
                     </Col>
 
                 </Row>

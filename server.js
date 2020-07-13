@@ -92,6 +92,48 @@ app.get('/api/directions', (req, res) => {
     });
 });
 
+app.get('/api/directions/get', (req, res) => {
+    // sql code
+    connection.getConnection((error, tempCont) => {
+        if (error) {
+            tempCont.release();
+            console.log('Error');
+        }
+        else {
+            console.log('Connected!');
+            tempCont.query("SELECT d.stepNum, d.description FROM direction d, recipe r where r.recipeId = d.recipeId AND r.slug = '" + req.query.slug + "'", function (error, rows, fields) {
+                tempCont.release();
+                if (error)
+                    console.log('Error in query');
+                else
+                    res.json(rows);
+            });
+
+        }
+    });
+});
+
+app.get('/api/ingredients/get', (req, res) => {
+    // sql code
+    connection.getConnection((error, tempCont) => {
+        if (error) {
+            tempCont.release();
+            console.log('Error');
+        }
+        else {
+            console.log('Connected!');
+            tempCont.query("SELECT i.ingredientName, i.ingredientAmount, i.ingredientMeasurement FROM ingredient i, recipe r where r.recipeId = i.recipeId AND r.slug = '" + req.query.slug + "'", function (error, rows, fields) {
+                tempCont.release();
+                if (error)
+                    console.log('Error in query');
+                else
+                    res.json(rows);
+            });
+
+        }
+    });
+});
+
 const port = 5000;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
