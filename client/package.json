@@ -1,5 +1,6 @@
 {
-  "name": "client",
+  "name": "makingmomsmenu",
+  "homepage": "http://makingmomsmenu.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
