@@ -71,6 +71,29 @@ app.get('/api/recipes/get', (req, res) => {
         }
     });
 });
+
+app.get('/api/carousel/get', (req, res) => {
+    // sql code
+    connection.getConnection((error, tempCont) => {
+        if (error) {
+            tempCont.release();
+            console.log('Error');
+        }
+        else {
+            console.log('Connected!');
+            console.log(req.query);
+
+            tempCont.query("select r.title, r.image, r.description, r.slug from recipe r order by r.recipeId desc LIMIT 3", function (error, rows, fields) {
+                tempCont.release();
+                if (error)
+                    console.log('Error in query');
+                else
+                    res.json(rows);
+            });
+
+        }
+    });
+});
 app.get('/api/directions', (req, res) => {
     // sql code
     connection.getConnection((error, tempCont) => {
@@ -101,7 +124,7 @@ app.get('/api/directions/get', (req, res) => {
         }
         else {
             console.log('Connected!');
-            tempCont.query("SELECT d.stepNum, d.description FROM direction d, recipe r where r.recipeId = d.recipeId AND r.slug = '" + req.query.slug + "'", function (error, rows, fields) {
+            tempCont.query("SELECT d.stepNum, d.description FROM direction d, recipe r where r.recipeId = d.recipeId AND r.slug = '" + req.query.slug + "' order by d.stepNum", function (error, rows, fields) {
                 tempCont.release();
                 if (error)
                     console.log('Error in query');

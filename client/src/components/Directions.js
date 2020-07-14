@@ -21,13 +21,15 @@ export default class Directions extends Component {
         console.log(this.props);
         return (
             <>
-                <Title title="Directions"></Title>
-                <ol>
-                    {this.state.directions.map(directions =>
-                        <li key={directions.id}>
-                            <h6>{directions.description}</h6>
-                        </li>)}
-                </ol>
+                <div className="directions-info">
+                    <Title title="Directions"></Title>
+                    <ol>
+                        {this.state.directions.map(directions =>
+                            <li key={directions.id}>
+                                <h6>{directions.description}</h6>
+                            </li>)}
+                    </ol>
+                </div>
             </>
         )
     }

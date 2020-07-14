@@ -21,17 +21,19 @@ export default class Ingredients extends Component {
         console.log(this.props);
         return (
             <>
-                <Title title="Ingredients List"></Title>
-                <ul>
-                    {this.state.ingredients.map(ingredients =>
-                        <li key={ingredients.id}>
-                            <h6>
+                <div className="ingredient-info">
+                    <Title title="Ingredients List" align=""></Title>
+                    <ul>
+                        <div className="ing-grid">
+                            {this.state.ingredients.map(ingredients =>
+                                <li key={ingredients.id}>
+                                    <h6>{ingredients.ingredientAmount} {ingredients.ingredientMeasurement} {ingredients.ingredientName} </h6>
+                                </li>)}
+                        </div>
 
-                                {ingredients.ingredientName}
-                                {ingredients.ingredientAmount}
-                                {ingredients.ingredientMeasurement}</h6>
-                        </li>)}
-                </ul>
+                    </ul>
+                </div>
+
             </>
         )
     }

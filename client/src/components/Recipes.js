@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Title from './Title'
-import { Container, Row, Col, Card } from "react-bootstrap";
+import Ingredients from './Ingredients'
+import { FaClock } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 export default class Recipes extends Component {
@@ -37,7 +38,10 @@ export default class Recipes extends Component {
             return item.prepTime;
         }));
         let cookTime = this.state.recipes.map((item => {
-            return item.cookTime;
+            return item.cooktime;
+        }));
+        let desc = this.state.recipes.map((item => {
+            return item.description;
         }));
 
         return {
@@ -46,24 +50,39 @@ export default class Recipes extends Component {
             servings,
             typeOf,
             prepTime,
-            cookTime
+            cookTime,
+            desc
         }
     }
 
     render() {
         const info = this.getInfo();
-        const totalTime = parseInt(info.prepTime);
+        const totalTime = parseInt(info.prepTime) + parseInt(info.cookTime);
         return (
-            <div>
-                <h2>{info.title}</h2>
-                <img src={info.image} alt="Recipe Image"></img>
-                <h6>{info.typeOf}</h6>
-                <Title title="nutirition"></Title>
-                <h3>{info.prepTime}</h3>
-                <h3>{info.cookTime}</h3>
-                <h3>{totalTime}</h3>
-                <h3>{info.servings}</h3>
-            </div>
+            <>
+                <div className="single-recipe">
+                    <Title title={info.title} align=""></Title>
+                    <div></div>
+                    <h6>{info.typeOf}</h6>
+                    <div></div>
+                    <div className="rec-image">
+                        <img src={info.image} alt="Recipe Image"></img>
+                    </div>
+                    <div className="nutri-info">
+                        <Title title="description" align="section-title-center"></Title>
+                        <p>
+                            {info.desc}
+                        </p>
+                        <FaClock className="fa fa-clock-o"></FaClock>
+
+                        <Title title="nutirition" align="section-title-center"></Title>
+                        <h6>Prep Time: {info.prepTime}</h6>
+                        <h6>Cook Time: {info.cookTime}</h6>
+                        <h6>Total Time: {totalTime}</h6>
+                        <h6>Servings: {info.servings}</h6>
+                    </div>
+                </div >
+            </>
         )
     }
 }

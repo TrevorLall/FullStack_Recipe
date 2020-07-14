@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Directions from '../components/Directions'
 import Ingredients from '../components/Ingredients'
 import Recipes from '../components/Recipes';
+import ChefNotes from '../components/ChefNotes';
 
 
 export default class SingleRecipe extends Component {
@@ -18,6 +19,7 @@ export default class SingleRecipe extends Component {
                 <Recipes slug={this.state.slug}></Recipes>
                 <Ingredients slug={this.state.slug}></Ingredients>
                 <Directions slug={this.state.slug}></Directions>
+                <ChefNotes slug={this.state.slug}></ChefNotes>
             </>
 
         )

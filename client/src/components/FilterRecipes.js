@@ -3,8 +3,11 @@ import Title from './Title'
 export default function FilterRecipes() {
     return (
         <>
-            <Title title="Filters"></Title>
-            Area where ill add filters
+            <div className="filter-container">
+                <Title title="Filters" align="section-title-center"></Title>
+                Area where ill add filters
+            </div>
+
         </>
     )
 }

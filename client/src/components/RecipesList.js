@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from 'react-router-dom'
 import Recipesthumbnail from './Recipesthumbnail'
 import Title from './Title'
@@ -22,7 +21,7 @@ export default class RecipesList extends Component {
     render() {
         return (
             <>
-                <Title title="Recipes"></Title>
+                <Title title="Recipes" align="section-title-center"></Title>
                 <section className="recipeslist">
                     <div className="recipeslist-center">
                         {this.state.recipes.map(recipes => {

@@ -1,11 +1,12 @@
 :root {
-  --primaryColor: #af9a7d;
+  --primaryColor: rgba(216, 21, 21, 0.8);
   --mainWhite: #fff;
   --offWhite: #f7f7f7;
   --mainBlack: #222;
   --mainGrey: #ececec;
   --darkGrey: #cfcfcf;
   --mainTransition: all 0.3s linear;
+  --lightGrey: #F0F0F0;
   --mainSpacing: 3px;
   --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
   --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
@@ -96,6 +97,7 @@
   transform: translate(-50%, -50%) scale(1);
 }
 
+
 .recipe-info {
   background: var(--primaryColor);
   color: var(--mainBlack);
@@ -141,6 +143,8 @@
 
 .homecarousel {
   padding: 1rem 0;
+  margin: 0 auto;
+  width: 80%;
 }
 
 .section-title {
@@ -152,9 +156,23 @@
   text-transform: capitalize;
 }
 .section-title div {
-  width: 5rem;
+  width: 8rem;
   height: 5px;
   margin: 0 auto;
+  background: var(--primaryColor);
+}
+
+.section-titleleft {
+  text-align: left;
+}
+.section-titleleft h4 {
+  font-size: 2rem;
+  letter-spacing: var(--mainSpacing);
+  text-transform: capitalize;
+}
+.section-titleleft div {
+  width: 20rem;
+  height: 5px;
   background: var(--primaryColor);
 }
 
@@ -165,8 +183,102 @@
   height: 32rem;
   object-fit: cover !important;
   display: block;
+ 
 }
 
 .carousel-item {
   height: 32rem;
+
+}
+
+.nutri-info{
+  border-bottom-style: outset;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-top-style: solid;
+  border-left-color: var(--lightGrey);
+  border-right-color: var(--lightGrey);
+  border-top-color: var(--lightGrey);
+  text-align: center;
+  box-sizing: border-box; 
+  padding-top: 1rem;
+}
+
+.single-recipe{
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(250px, 1fr));
+  grid-column-gap: 5rem;
+}
+.rec-image img {
+  width: 35rem;
+  
+}
+
+.ingredient-info{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom-style: outset ;
+  margin: auto ;
+  width: 60%;
+}
+
+.ing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-column-gap: 5rem;
+}
+
+.directions-info{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin: auto ;
+  width: 60%;
+  font-size: 2rem;
+
+}
+
+.chef-info{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  margin: auto ;
+  width: 60%;
+}
+
+.recipe-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(219, 2, 2, 0.8);
+  color: var(--mainWhite);
+  padding: 0.3rem 0.6rem 0.5rem;
+  border-bottom-right-radius: 1rem;
+  font-size: 0.5rem;
+  text-align: center;
+  transition: var(--mainTransition);
+}
+.recipe-top h6 {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: var(--mainSpacing);
+}
+
+.filter-container{
+  margin: auto ;
+  width: 80%;
+  padding-bottom: 1rem;
+  border-top-style: solid ;
+  border-bottom-style: solid ;
+  border-top-color: var(--lightGrey);
+  border-bottom-color: var(--mainGrey);
+
+}
+
+.NavBar {
+  margin: 0 auto;
+  width: 80%;
 }

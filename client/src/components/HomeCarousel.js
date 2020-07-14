@@ -1,48 +1,102 @@
-import React from 'react'
-import Carousel from 'react-bootstrap/Carousel'
+import React, { Component } from 'react'
+import { Carousel } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+export default class HomeCarousel extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            recipes: []
+        }
+    }
 
-export default function HomeCarousel() {
-    return (
-        <Carousel>
-            <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src="https://www.cookingclassy.com/wp-content/uploads/2018/08/chicken-curry-11.jpg"
-                    alt="First slide"
-                />
-                <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src="https://www.cookwithmanali.com/wp-content/uploads/2020/03/Roti-Recipe-Indian-flatbread-500x500.jpg"
-                    alt="Third slide"
-                    height="550"
+    componentDidMount() {
+        //get directions
+        fetch('/api/carousel/get')
+            .then(res => res.json())
+            .then(recipes => this.setState({ recipes },
+                () => console.log('Single carousel feteched... ', recipes)));
+    }
 
-                />
+    getInfo() {
+        this.state.recipes.forEach(color => console.log(color));
+        let title = this.state.recipes.map((item => {
+            return item.title;
+        }));
+        let image = this.state.recipes.map((item => {
+            return item.image;
+        }));
+        let desc = this.state.recipes.map((item => {
+            return item.description;
+        }));
+        let slug = this.state.recipes.map((item => {
+            return item.slug;
+        }));
+        return {
+            title,
+            image,
+            desc,
+            slug
+        }
+    }
 
-                <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src="https://www.realniceguyana.com/wp-content/uploads/2018/03/BIGANEE-RECIPE-PHOULOURI-RECIPE-BARA-RECIPE.jpg"
-                    alt="Third slide"
-                    height="550"
-                />
+    render() {
+        let info = this.getInfo();
+        console.log("why", info.image[0]);
+        return (
+            <div>
+                <>
+                    <Carousel>
+                        <Carousel.Item>
 
-                <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                </Carousel.Caption>
-            </Carousel.Item>
-        </Carousel>
+                            <Link to={`/recipes/${info.slug[0]}`} ><img
+                                className="d-block w-100"
+                                src={info.image[0]}
+                                alt="First slide"
+                            /></Link>
 
-    )
+                            <div className="recipe-top">
+                                <h6>Newest Recipes</h6>
+                            </div>
+                            <Carousel.Caption>
+                                <h3>{info.title[0]}</h3>
+                                <p>{info.desc[0]}</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <Link to={`/recipes/${info.slug[1]}`} ><img
+                                className="d-block w-100"
+                                src={info.image[1]}
+                                alt="Third slide"
+                                height="550"
+
+                            /></Link>
+                            <div className="recipe-top">
+                                <h6>Newest Recipes</h6>
+                            </div>
+                            <Carousel.Caption>
+                                <h3>{info.title[1]}</h3>
+                                <p>{info.desc[1]}</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <Link to={`/recipes/${info.slug[2]}`} > <img
+                                className="d-block w-100"
+                                src={info.image[2]}
+                                alt="Third slide"
+                                height="550"
+                            /></Link>
+                            <div className="recipe-top">
+                                <h6>Newest Recipes</h6>
+                            </div>
+                            <Carousel.Caption>
+                                <h3>{info.title[2]}</h3>
+                                <p>{info.desc[2]}</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                    </Carousel>
+                </>
+            </div>
+        )
+    }
 }
+
