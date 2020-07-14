@@ -99,7 +99,7 @@
 
 
 .recipe-info {
-  background: var(--primaryColor);
+  background: rgb(255, 0, 0);
   color: var(--mainBlack);
   text-transform: uppercase;
   padding: 0.5rem 0;
@@ -149,6 +149,7 @@
 
 .section-title {
   text-align: center;
+  padding-bottom: 1rem;
 }
 .section-title h4 {
   font-size: 2rem;
@@ -156,7 +157,7 @@
   text-transform: capitalize;
 }
 .section-title div {
-  width: 8rem;
+  width: 5rem;
   height: 5px;
   margin: 0 auto;
   background: var(--primaryColor);
@@ -164,6 +165,7 @@
 
 .section-titleleft {
   text-align: left;
+  padding-bottom: 1rem;
 }
 .section-titleleft h4 {
   font-size: 2rem;
@@ -183,12 +185,44 @@
   height: 32rem;
   object-fit: cover !important;
   display: block;
- 
 }
+
+
 
 .carousel-item {
   height: 32rem;
+}
 
+.carousel-div {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background-color:rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  width: 100%;
+  height:0;
+  transition: .5s ease;
+}
+
+.carousel-div h2 {
+  text-decoration: none;
+  letter-spacing: var(--mainSpacing);
+  color: var(--offWhite);
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  border-bottom: 3px solid var(--primaryColor);
+  transition: var(--mainTransition);
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+}
+
+.carousel-item:hover .carousel-div{
+  bottom: 0;
+  height: 100%;
 }
 
 .nutri-info{
@@ -200,21 +234,30 @@
   border-right-color: var(--lightGrey);
   border-top-color: var(--lightGrey);
   text-align: center;
-  box-sizing: border-box; 
   padding-top: 1rem;
+  width: 100%;
+  left: 0px;
+  right: 0px;
+
 }
 
 .single-recipe{
   margin: auto;
   width: 60%;
-  padding: 10px;
+  padding-top: 10px;
+  max-width: 100%;
+  height: auto;
+  left: 0px;
+  right: 0px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   grid-column-gap: 5rem;
+  
 }
 .rec-image img {
-  width: 35rem;
-  
+  width: 100%;
+  left: 0px;
+  right: 0px;
 }
 
 .ingredient-info{
@@ -228,7 +271,7 @@
 .ing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-column-gap: 5rem;
+  grid-column-gap: 2rem;
 }
 
 .directions-info{
@@ -243,7 +286,6 @@
 .chef-info{
   padding-top: 1rem;
   padding-bottom: 1rem;
-
   margin: auto ;
   width: 60%;
 }
@@ -282,3 +324,4 @@
   margin: 0 auto;
   width: 80%;
 }
+

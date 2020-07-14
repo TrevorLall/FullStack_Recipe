@@ -48,46 +48,63 @@ export default class HomeCarousel extends Component {
                     <Carousel>
                         <Carousel.Item>
 
-                            <Link to={`/recipes/${info.slug[0]}`} ><img
+                            <img
                                 className="d-block w-100"
                                 src={info.image[0]}
                                 alt="First slide"
-                            /></Link>
-
+                            />
                             <div className="recipe-top">
                                 <h6>Newest Recipes</h6>
                             </div>
+
+
+                            <Link to={`/recipes/${info.slug[0]}`} >
+                                <div className="carousel-div">
+                                    <h2>View Recipe</h2>
+                                </div>
+                            </Link>
                             <Carousel.Caption>
                                 <h3>{info.title[0]}</h3>
                                 <p>{info.desc[0]}</p>
                             </Carousel.Caption>
+
                         </Carousel.Item>
                         <Carousel.Item>
-                            <Link to={`/recipes/${info.slug[1]}`} ><img
+                            <img
                                 className="d-block w-100"
                                 src={info.image[1]}
                                 alt="Third slide"
                                 height="550"
 
-                            /></Link>
+                            />
                             <div className="recipe-top">
                                 <h6>Newest Recipes</h6>
                             </div>
+                            <Link to={`/recipes/${info.slug[1]}`} >
+                                <div className="carousel-div">
+                                    <h2>View Recipe</h2>
+                                </div>
+                            </Link>
                             <Carousel.Caption>
                                 <h3>{info.title[1]}</h3>
                                 <p>{info.desc[1]}</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <Link to={`/recipes/${info.slug[2]}`} > <img
+                            <img
                                 className="d-block w-100"
                                 src={info.image[2]}
                                 alt="Third slide"
                                 height="550"
-                            /></Link>
+                            />
                             <div className="recipe-top">
                                 <h6>Newest Recipes</h6>
                             </div>
+                            <Link to={`/recipes/${info.slug[2]}`} >
+                                <div className="carousel-div">
+                                    <h2>View Recipe</h2>
+                                </div>
+                            </Link>
                             <Carousel.Caption>
                                 <h3>{info.title[2]}</h3>
                                 <p>{info.desc[2]}</p>
@@ -95,7 +112,7 @@ export default class HomeCarousel extends Component {
                         </Carousel.Item>
                     </Carousel>
                 </>
-            </div>
+            </div >
         )
     }
 }

@@ -94,6 +94,30 @@ app.get('/api/carousel/get', (req, res) => {
         }
     });
 });
+
+app.get('/api/notes/get', (req, res) => {
+    // sql code
+    connection.getConnection((error, tempCont) => {
+        if (error) {
+            tempCont.release();
+            console.log('Error');
+        }
+        else {
+            console.log('Connected!');
+            console.log(req.query);
+
+            tempCont.query("select r.chefnotes from recipe r where  r.slug = '" + req.query.slug + "'", function (error, rows, fields) {
+                tempCont.release();
+                if (error)
+                    console.log('Error in query');
+                else
+                    res.json(rows);
+            });
+
+        }
+    });
+});
+
 app.get('/api/directions', (req, res) => {
     // sql code
     connection.getConnection((error, tempCont) => {

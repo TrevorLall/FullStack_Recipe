@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Title from './Title'
+import { FaTasks } from 'react-icons/fa'
 
 export default class Directions extends Component {
     constructor(props) {

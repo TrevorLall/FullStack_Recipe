@@ -61,10 +61,8 @@ export default class Recipes extends Component {
         return (
             <>
                 <div className="single-recipe">
-                    <Title title={info.title} align=""></Title>
-                    <div></div>
-                    <h6>{info.typeOf}</h6>
-                    <div></div>
+                    <Title title={info.title} align=""></Title><div />
+
                     <div className="rec-image">
                         <img src={info.image} alt="Recipe Image"></img>
                     </div>
@@ -74,13 +72,14 @@ export default class Recipes extends Component {
                             {info.desc}
                         </p>
                         <FaClock className="fa fa-clock-o"></FaClock>
-
-                        <Title title="nutirition" align="section-title-center"></Title>
-                        <h6>Prep Time: {info.prepTime}</h6>
-                        <h6>Cook Time: {info.cookTime}</h6>
-                        <h6>Total Time: {totalTime}</h6>
+                        <Title title="nutrition" align="section-title-center"></Title>
+                        <h6>Prep Time: {info.prepTime}mins</h6>
+                        <h6>Cook Time: {info.cookTime}mins</h6>
+                        <h6>Total Time: {totalTime}mins</h6>
                         <h6>Servings: {info.servings}</h6>
                     </div>
+
+
                 </div >
             </>
         )

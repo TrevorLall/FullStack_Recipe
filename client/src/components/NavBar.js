@@ -14,7 +14,7 @@ export default function NavBar() {
                         className="d-inline-block align-top"
 
                     />{' '}
-                    Guyanese Recipes
+                    Making Moms Menu
                 </Navbar.Brand>
             </Navbar>
         </div>
