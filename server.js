@@ -4,10 +4,10 @@ const mysql = require('mysql');
 
 const connection = mysql.createPool({
     connectionLimit: 50,
-    host: 'makingmomsmenu.com',
-    user: 'makingm3_root',
-    password: 'wn9zP{JFi;WY',
-    database: 'makingm3_homerecipes'
+    host: 'localhost',
+    user: 'root',
+    password: 'password',
+    database: 'homecooking'
 })
 app.get('/api/ingredients', (req, res) => {
     // sql code
