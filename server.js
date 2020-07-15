@@ -181,6 +181,6 @@ app.get('/api/ingredients/get', (req, res) => {
     });
 });
 
-const port = 5000;
+var PORT = process.env.PORT || 5000;
 
-app.listen(port, () => console.log(`Server started on port ${port}`));
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
